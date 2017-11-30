@@ -1,23 +1,37 @@
 var Queue = function() {
   var someInstance = {};
 
-  // Use an object with numeric keys to store values
-  var storage = {};
-
-  // Implement the methods below
+  var storage = {length: 0};
 
   someInstance.enqueue = function(value) {
-    // works like push
-    // adds a value to the back of the queue using length + 1 as index?
+    storage[storage.length + 1] = undefined;
+    storage.length++;
+
+    var length = storage.length;
+
+    while (length > 0) {
+      storage[length] = storage[length - 1];
+      length--;
+    }
+    storage[0] = value;
+    
   };
 
   someInstance.dequeue = function() {
-    // works like unshift
-    //removes a value from the front of the queue (index 0)
+    if (storage.length === 0) {
+      return undefined;
+    }
+    
+    var popped = storage[storage.length - 1];
+    delete storage[storage.length];
+    storage.length--;
+    
+    return popped;
   };
 
+
   someInstance.size = function() {
-    //counts the number of values in the queue
+    return storage.length;
   };
 
   return someInstance;
