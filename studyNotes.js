@@ -60,8 +60,10 @@ var house = new House('pseudoclassical blue');
 //FUNCTIONAL SHARED - uses separate object for storing / sharing methods
 var House = function(color) {
   var obj = {};
+
   obj.color = color;
   obj.door = open;
+
   //methods are stored in a separate shared object
   obj.open = houseMethods.open;
   obj.close = houseMethods.close;
@@ -85,7 +87,30 @@ var house = House('functional shared green');
 
 
 
-//FUNCTIONAL - built out in 
+//FUNCTIONAL - all functionality built in the constructor
+var House = function(color) {
+  var obj = {};
+
+  obj.color = color;
+  obj.door = open;
+
+  obj.openDoor = function() {
+    obj.door = 'open';
+  };
+
+  obj.closeDoor = function() {
+    obj.door = 'closed';
+  };
+
+  //still need to return original object
+  return obj; 
+};
+
+//creating new instances with this pattern
+var house = House('functional brown');
+
+
+
 
 
 
