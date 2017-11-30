@@ -22,11 +22,11 @@ var Queue = function() {
       return undefined;
     }
     
-    var popped = storage[storage.length - 1];
+    var dequeued = storage[storage.length - 1];
     delete storage[storage.length];
     storage.length--;
     
-    return popped;
+    return dequeued;
   };
 
 
