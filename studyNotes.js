@@ -203,3 +203,34 @@ class SinglyLinkedList {
     return this.head;
   }  
 }
+
+
+//hash tables brainstorm
+
+// hash._storage.storage; // returns undefined
+// it is basically a private array object
+// can only be accessed with the methods from LimitedArray
+
+//var secretStorage = [  0[ 0[ 0k,1v ], 1[k,v]  ]  1[  ]   2[  ]   3[  ]   ]
+  
+
+//what does a hash look like?
+hash = {
+
+  _limit: 8,
+
+  _storage: {
+  
+    storage: [], //private
+
+    'get': 'fn(index)',
+    'set': 'fn(index,value)',
+    'each': 'fn(callback)',
+    'checkLimit': 'fn(index)',
+  },
+
+  // functions
+  insert: 'fn(k,v)',
+  retrieve: 'fn(k)',
+  remove: 'fn(k)'
+};
